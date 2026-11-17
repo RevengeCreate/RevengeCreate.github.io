@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusuf Kerim Aydın | Mekatronik & Savunma Sistemleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            bg: '#060911',
+                            card: '#0D1322',
+                            border: '#1E293B',
+                            accent: '#0EA5E9',
+                            emerald: '#10B981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #060911;
+            color: #E2E8F0;
+            background-image: 
+                linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background: rgba(13, 19, 34, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+        }
+        .glow-hover:hover {
+            border-color: rgba(14, 165, 233, 0.5);
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.12);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .status-dot {
+            animation: pulse-slow 2s infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-500/30 selection:text-sky-200">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="flex items-center gap-2 font-mono font-bold text-lg tracking-wider text-white">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span>
+                    YKA<span class="text-sky-500">.SYS</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#hakkimda" class="hover:text-sky-400 transition-colors">Hakkımda</a>
+                    <a href="#projeler" class="hover:text-sky-400 transition-colors">Projeler</a>
+                    <a href="#yetenekler" class="hover:text-sky-400 transition-colors">Yetkinlikler</a>
+                    <a href="#basarilar" class="hover:text-sky-400 transition-colors">Başarılar</a>
+                    <a href="#iletisim" class="px-4 py-2 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-400 hover:bg-sky-500 hover:text-white transition-all">İletişim</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#hakkimda" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-sky-400">Hakkımda</a>
+            <a href="#projeler" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-sky-400">Projeler</a>
+            <a href="#yetenekler" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-sky-400">Yetkinlikler</a>
+            <a href="#basarilar" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-sky-400">Başarılar</a>
+            <a href="#iletisim" class="block px-3 py-2 rounded-md text-sky-400 font-medium">İletişim</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hakkimda" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot"></span>
+                    AKTİF GELİŞTİRME: TEKNOFEST 2026 / 2027 PROJELERİ
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+                    Yusuf Kerim <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">Aydın</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-300 font-medium">
+                    Mekatronik Teknikeri Adayı & Gömülü Sistemler Geliştiricisi
+                </p>
+                
+                <p class="text-slate-400 leading-relaxed max-w-2xl">
+                    Karadeniz Teknik Üniversitesi Sürmene Abdullah Kanca MYO Mekatronik öğrencisi. Otonom savunma sistemleri, sabit kanatlı İHA aviyonik mimarileri, STM32/Jetson tabanlı görüntü işleme ve endüstriyel otomasyon kontrol sistemleri üzerine odaklanıyorum.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projeler" class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-medium transition-all flex items-center gap-2 shadow-lg shadow-sky-500/20">
+                        <i data-lucide="cpu" class="w-4 h-4"></i>
+                        Projeleri İncele
+                    </a>
+                    <a href="#iletisim" class="px-6 py-3 rounded-lg glass-panel hover:border-sky-500/50 text-slate-200 font-medium transition-all flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-4 h-4 text-sky-400"></i>
+                        İletişime Geç
+                    </a>
+                </div>
+            </div>
+
+            <!-- Telemetry / System Status Card -->
+            <div class="lg:col-span-5">
+                <div class="glass-panel rounded-2xl p-6 border border-slate-800 relative overflow-hidden">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="radar" class="w-5 h-5 text-sky-400"></i>
+                            <span class="font-mono text-xs text-slate-400 uppercase tracking-wider">Sistem Özeti // Telemetry</span>
+                        </div>
+                        <span class="font-mono text-xs text-emerald-400">ONLINE</span>
+                    </div>
+
+                    <div class="space-y-4 font-mono text-sm">
+                        <div class="flex justify-between items-center py-1.5 border-b border-slate-800/60">
+                            <span class="text-slate-400">KURUM</span>
+                            <span class="text-slate-200 text-right">KTÜ Sürmene Abdullah Kanca MYO</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1.5 border-b border-slate-800/60">
+                            <span class="text-slate-400">BÖLÜM</span>
+                            <span class="text-sky-400">Mekatronik</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1.5 border-b border-slate-800/60">
+                            <span class="text-slate-400">KONUM</span>
+                            <span class="text-slate-200">Trabzon / Gümüşhane, TR</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1.5 border-b border-slate-800/60">
+                            <span class="text-slate-400">ANA ODAK</span>
+                            <span class="text-emerald-400">C-UAS, Otonom İHA, Gömülü AI</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1.5">
+                            <span class="text-slate-400">HEDEF YARIŞMALAR</span>
+                            <span class="text-slate-200">TEKNOFEST & TÜBİTAK</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-3 rounded-lg bg-slate-950/80 border border-slate-800/80 font-mono text-xs text-slate-400">
+                        <span class="text-sky-400">$</span> status --check-modules<br>
+                        <span class="text-emerald-400">[OK]</span> STM32_HAL &nbsp;
+                        <span class="text-emerald-400">[OK]</span> JETSON_AI &nbsp;
+                        <span class="text-emerald-400">[OK]</span> KICAD_PCB
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projeler" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-800/60">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="font-mono text-xs text-sky-400 uppercase tracking-widest">// Mühendislik Çalışmaları</span>
+                <h2 class="text-3xl font-bold text-white mt-2">Öne Çıkan Projeler</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2" id="project-filters">
+                <button data-filter="all" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono bg-sky-500 text-white transition-all">TÜMÜ</button>
+                <button data-filter="savunma" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono bg-slate-800/80 text-slate-300 hover:bg-slate-700 transition-all">SAVUNMA & İHA</button>
+                <button data-filter="robotik" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono bg-slate-800/80 text-slate-300 hover:bg-slate-700 transition-all">GÖMÜLÜ ROBOTİK</button>
+                <button data-filter="yazilim" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono bg-slate-800/80 text-slate-300 hover:bg-slate-700 transition-all">YAZILIM & OTOMASYON</button>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+            <!-- Card 1 -->
+            <div class="project-card glass-panel rounded-xl p-6 flex flex-col justify-between glow-hover transition-all cursor-pointer" data-category="savunma" onclick="openModal('celik-kubbe')">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">SAVUNMA & C-UAS</span>
+                        <i data-lucide="crosshair" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Çelik Kubbe Otonom Hava Savunma Prototipi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        TEKNOFEST için geliştirilen; Pan-Tilt kule mekanizması, manyetik enkoder geri bildirimi ve yapay zeka destekli gerçek zamanlı hedef takip sistemi.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-xs text-slate-300">
+                        <span class="px-2 py-0.5 rounded bg-slate-800">STM32</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Jetson Nano</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">AS5048A</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">TMC2209</span>
+                    </div>
+                    <div class="text-xs font-mono text-sky-400 flex items-center gap-1">
+                        Teknik Detayları Gör <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="project-card glass-panel rounded-xl p-6 flex flex-col justify-between glow-hover transition-all cursor-pointer" data-category="savunma" onclick="openModal('sabit-kanat-iha')">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">HAVACILIK & İHA</span>
+                        <i data-lucide="plane" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Otonom Sabit Kanatlı İHA Sistemi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Cube Orange+ / Pixhawk uçuş kontrolcüsü, 6 kanallı kontrol yüzeyi yönetimi, otonom faydalı yük bırakma ve telemetri mimarisi.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-xs text-slate-300">
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Pixhawk</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">KiCad</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Telemetri</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">PWM/Servo</span>
+                    </div>
+                    <div class="text-xs font-mono text-sky-400 flex items-center gap-1">
+                        Teknik Detayları Gör <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="project-card glass-panel rounded-xl p-6 flex flex-col justify-between glow-hover transition-all cursor-pointer" data-category="robotik" onclick="openModal('meb-kit')">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">GÖMÜLÜ ROBOTİK</span>
+                        <i data-lucide="bot" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Otonom Çizgi İzleyen & Engelden Kaçan Robot</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        MEB-KİT Robot Yarışması için geliştirilen, PID tabanlı motor kontrolü ve ultrasonik sensör füzyonuna sahip otonom mobil platform.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-xs text-slate-300">
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Arduino</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">C++</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">L298N</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">PID Kontrol</span>
+                    </div>
+                    <div class="text-xs font-mono text-sky-400 flex items-center gap-1">
+                        Teknik Detayları Gör <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="project-card glass-panel rounded-xl p-6 flex flex-col justify-between glow-hover transition-all cursor-pointer" data-category="yazilim" onclick="openModal('masaustu-otomasyon')">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">YAZILIM & GUI</span>
+                        <i data-lucide="code-2" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Yer Kontrol İstasyonu GUI & Python Araçları</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Donanım telemetri takibi için özel arayüzler, sesli masaüstü asistan ve evrensel belge formatı dönüştürücü (`converter.py`) otomasyonları.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-xs text-slate-300">
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Python</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">GUI</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Serial Comm</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800">Git</span>
+                    </div>
+                    <div class="text-xs font-mono text-sky-400 flex items-center gap-1">
+                        Teknik Detayları Gör <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix -->
+    <section id="yetenekler" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-800/60">
+        <div class="mb-12">
+            <span class="font-mono text-xs text-sky-400 uppercase tracking-widest">// Teknik Envanter</span>
+            <h2 class="text-3xl font-bold text-white mt-2">Yetkinlik & Araç Matrisi</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel rounded-xl p-6">
+                <div class="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-4">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white mb-3">Gömülü Sistemler</h3>
+                <ul class="space-y-2 text-sm text-slate-400 font-mono">
+                    <li>• STM32 Mikrodenetleyiciler</li>
+                    <li>• Arduino (UNO / Nano / Mega)</li>
+                    <li>• Jetson Nano / Raspberry Pi 5</li>
+                    <li>• Pixhawk & Cube Orange+</li>
+                    <li>• Step & Servo Motor Sürücüleri</li>
+                </ul>
+            </div>
+
+            <div class="glass-panel rounded-xl p-6">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                    <i data-lucide="circuit-board" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white mb-3">Elektronik & EDA</h3>
+                <ul class="space-y-2 text-sm text-slate-400 font-mono">
+                    <li>• KiCad Şematik & PCB</li>
+                    <li>• Proteus 9 ISIS / ARES</li>
+                    <li>• Fritzing Devre Tasarımı</li>
+                    <li>• Güç Dağıtımı (LiPo / BEC)</li>
+                    <li>• Sensör & Enkoder Entegrasyonu</li>
+                </ul>
+            </div>
+
+            <div class="glass-panel rounded-xl p-6">
+                <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-4">
+                    <i data-lucide="terminal-square" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white mb-3">Yazılım & Yapay Zeka</h3>
+                <ul class="space-y-2 text-sm text-slate-400 font-mono">
+                    <li>• C / C++ (Embedded)</li>
+                    <li>• Python & Otomasyon</li>
+                    <li>• OpenCV / Görüntü İşleme</li>
+                    <li>• HTML / CSS / Web Geliştirme</li>
+                    <li>• Git & GitHub Pages</li>
+                </ul>
+            </div>
+
+            <div class="glass-panel rounded-xl p-6">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-4">
+                    <i data-lucide="box" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white mb-3">Mekanik & Prototipleme</h3>
+                <ul class="space-y-2 text-sm text-slate-400 font-mono">
+                    <li>• 3B CAD Modelleme</li>
+                    <li>• Dilimleme (Slicing) & 3D Baskı</li>
+                    <li>• Pan-Tilt Kule Kinematikleri</li>
+                    <li>• Teknik Resim & Toleranslar</li>
+                    <li>• Mekanik Montaj & Test</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Education -->
+    <section id="basarilar" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-800/60">
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Achievements -->
+            <div>
+                <span class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Dereceler & Yarışmalar</span>
+                <h2 class="text-3xl font-bold text-white mt-2 mb-8">Başarılar & Projeler</h2>
+                
+                <div class="space-y-4">
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-emerald-400">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-white">"Hayalim Çilhorozdan Öte" Proje Yarışması</h3>
+                            <span class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-xs">1. LİK ÖDÜLÜ</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-2">Bölgesel proje sunumu ve mühendislik tasarımı kategorisinde birincilik derecesi.</p>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-sky-400">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-white">TEKNOFEST Hava Savunma & İHA Takımları</h3>
+                            <span class="px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 font-mono text-xs">AKTİF</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-2">Üniversite düzeyinde "Çelik Kubbe" hava savunma prototipi ve sabit kanatlı İHA sistemleri geliştirme.</p>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-slate-500">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-white">MEB-KİT Robot Yarışması & TÜBİTAK</h3>
+                            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-xs">2026</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-2">Otonom çizgi izleyen robot kategorisi katılımı ve TÜBİTAK bilim fuarı proje sergileri.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+                <span class="font-mono text-xs text-sky-400 uppercase tracking-widest">// Akademik Geçmiş</span>
+                <h2 class="text-3xl font-bold text-white mt-2 mb-8">Eğitim Bilgileri</h2>
+
+                <div class="relative pl-6 border-l border-slate-800 space-y-8">
+                    <div class="relative">
+                        <span class="w-3 h-3 rounded-full bg-sky-500 absolute -left-[30px] top-1.5 ring-4 ring-slate-950"></span>
+                        <span class="font-mono text-xs text-sky-400">2026 - DEVAM EDİYOR</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Karadeniz Teknik Üniversitesi</h3>
+                        <p class="text-slate-300 text-sm">Sürmene Abdullah Kanca MYO — Mekatronik Programı</p>
+                        <p class="text-slate-400 text-xs mt-2">Endüstriyel otomasyon, mikrodenetleyiciler, hidrolik-pnömatik sistemler ve bilgisayar destekli teknik çizim.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="w-3 h-3 rounded-full bg-slate-600 absolute -left-[30px] top-1.5 ring-4 ring-slate-950"></span>
+                        <span class="font-mono text-xs text-slate-400">2022 - 2026</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Fen Lisesi Mezunu</h3>
+                        <p class="text-slate-300 text-sm">Sayısal & Fen Bilimleri Alanı</p>
+                        <p class="text-slate-400 text-xs mt-2">Lise döneminde robotik kulübü, TÜBİTAK projeleri ve temel elektronik devre çalışmaları.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-slate-800/60">
+        <div class="glass-panel rounded-2xl p-8 sm:p-10">
+            <div class="text-center mb-8">
+                <span class="font-mono text-xs text-sky-400 uppercase tracking-widest">// Bağlantı Kur</span>
+                <h2 class="text-3xl font-bold text-white mt-2">Proje & İş Birliği İletişimi</h2>
+                <p class="text-slate-400 text-sm mt-2">TEKNOFEST takımları, gömülü sistem projeleri veya teknik iş birlikleri için mesaj bırakabilirsiniz.</p>
+            </div>
+
+            <form id="contact-form" class="space-y-4">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-1.5">ADINIZ / KURUM</label>
+                        <input type="text" required placeholder="Örn: Ahmet Yılmaz" class="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-sky-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-1.5">E-POSTA ADRESİNİZ</label>
+                        <input type="email" required placeholder="ornek@domain.com" class="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-sky-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-400 mb-1.5">MESAJINIZ</label>
+                    <textarea rows="4" required placeholder="Proje detayları veya iletmek istediğiniz mesaj..." class="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-sky-500"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-medium transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    Mesajı Gönder
+                </button>
+            </form>
+
+            <div id="form-feedback" class="hidden mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center font-mono">
+                Mesajınız başarıyla iletildi! En kısa sürede dönüş yapılacaktır.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 py-8 px-4 text-center text-slate-500 text-xs font-mono">
+        <p>© 2026 Yusuf Kerim Aydın — Mekatronik & Savunma Sistemleri Portföyü</p>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-panel max-w-xl w-full rounded-2xl p-6 sm:p-8 border border-slate-700 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <span id="modal-tag" class="px-2.5 py-1 rounded text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">KATEGORİ</span>
+            <h3 id="modal-title" class="text-2xl font-bold text-white mt-3 mb-3">Proje Başlığı</h3>
+            <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed mb-5">Açıklama</p>
+            <div class="bg-slate-950/90 rounded-xl p-4 border border-slate-800">
+                <h4 class="font-mono text-xs text-slate-400 uppercase mb-2">Donanım & Yazılım Mimarisi</h4>
+                <ul id="modal-specs" class="space-y-1.5 text-xs font-mono text-emerald-400"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-sky-500', 'text-white');
+                    b.classList.add('bg-slate-800/80', 'text-slate-300');
+                });
+                btn.classList.remove('bg-slate-800/80', 'text-slate-300');
+                btn.classList.add('bg-sky-500', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Project Modal Data
+        const projectDetails = {
+            'celik-kubbe': {
+                tag: 'SAVUNMA & C-UAS',
+                title: 'Çelik Kubbe Otonom Hava Savunma Prototipi',
+                desc: 'Düşük irtifa hava tehditlerini tespit, takip ve etkisiz hale getirme konseptiyle TEKNOFEST için geliştirilen iki eksenli (Pan-Tilt) otonom kule sistemi.',
+                specs: [
+                    '• İşlem Birimi: Jetson Nano / Raspberry Pi 5 (Görüntü İşleme) + STM32 (Gerçek Zamanlı Kontrol)',
+                    '• Tahrik & Kontrol: NEMA 17 Step Motorlar, TMC2209 Sessiz Sürücüler',
+                    '• Geri Bildirim: AS5048A 14-Bit Manyetik Açısal Enkoder & 12 Kanallı Slip Ring',
+                    '• Optik & Güç: Arducam OV2311 Global Shutter Kamera, 4S LiPo Güç Mimarisi'
+                ]
+            },
+            'sabit-kanat-iha': {
+                tag: 'HAVACILIK & OTONOM İHA',
+                title: 'Otonom Sabit Kanatlı İHA Sistemi',
+                desc: 'TEKNOFEST İHA yarışmaları kapsamında otonom kalkış, rota takibi, hedef tespiti ve hassas faydalı yük bırakma görevlerini icra eden sabit kanatlı hava aracı.',
+                specs: [
+                    '• Otopilot: Cube Orange+ / Pixhawk Uçuş Kontrol Kartı',
+                    '• Eyleyiciler: Aileron, Elevator, Rudder ve Faydalı Yük için 6 Kanal PWM Servo',
+                    '• Haberleşme: Uzun Menzilli Telemetri Modülü & Yer Kontrol İstasyonu',
+                    '• Tasarım: KiCad & Fritzing ile özel güç dağıtım ve aviyonik kablolama şemaları'
+                ]
+            },
+            'meb-kit': {
+                tag: 'GÖMÜLÜ ROBOTİK',
+                title: 'Otonom Çizgi İzleyen & Engelden Kaçan Robot',
+                desc: 'MEB-KİT Robot Yarışması parkur kurallarına uygun olarak yüksek hızda çizgi takibi yapan ve dinamik engellerden kaçınabilen mikrodenetleyici tabanlı robot.',
+                specs: [
+                    '• Kontrolcü: Arduino UNO & Optimize Edilmiş C++ Algoritması',
+                    '• Sürücü & Motor: L298N Çift H-Köprüsü Motor Sürücü ve Redüktörlü DC Motorlar',
+                    '• Sensörler: Kızılötesi Çizgi Sensör Dizisi ve HC-SR04 Ultrasonik Mesafe Sensörü'
+                ]
+            },
+            'masaustu-otomasyon': {
+                tag: 'YAZILIM & OTOMASYON',
+                title: 'Yer Kontrol İstasyonu GUI & Python Araçları',
+                desc: 'Donanım projelerinin test süreçlerini hızlandırmak için geliştirilen seri port telemetri arayüzleri, sesli komut asistanı ve toplu dosya format dönüştürücü.',
+                specs: [
+                    '• Dil & Kütüphaneler: Python, Tkinter/PyQt GUI, PySerial',
+                    '• Özellikler: Gerçek zamanlı sensör verisi çizimi ve komut gönderimi',
+                    '• Dosya Otomasyonu: Çoklu belge formatlarını dönüştüren converter.py aracı'
+                ]
+            }
+        };
+
+        function openModal(id) {
+            const data = projectDetails[id];
+            if (!data) return;
+            document.getElementById('modal-tag').textContent = data.tag;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-desc').textContent = data.desc;
+            
+            const specsList = document.getElementById('modal-specs');
+            specsList.innerHTML = data.specs.map(s => `<li>${s}</li>`).join('');
+            
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Contact Form Handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.reset();
+            const feedback = document.getElementById('form-feedback');
+            feedback.classList.remove('hidden');
+            setTimeout(() => feedback.classList.add('hidden'), 5000);
+        });
+    </script>
+</body>
+</html>
